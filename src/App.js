@@ -12,6 +12,7 @@ function App() {
   const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [unit, setUnit] = useState('celsius');
 
   function handleSearch(e) {
     setSearch(e.target.value);
@@ -53,7 +54,7 @@ function App() {
   }, [location, search, fetchData]);
 
   let display = data ? (
-    <Weather place={place} data={data} />
+    <Weather place={place} data={data} unit={unit} />
   ) : (
     <p>no data found 😬</p>
   );
@@ -75,6 +76,9 @@ function App() {
         </div>
         <div>
           <button onClick={geoHandler}>Find me!</button>
+          <button onClick={() => setUnit(unit === 'celsius' ? 'fahrenheit' : 'celsius')}>
+            {unit === 'celsius' ? 'Fahrenheit' : 'Celsius'} 
+          </button>
         </div>
         <br />
         <br />
