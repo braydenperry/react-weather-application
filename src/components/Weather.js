@@ -6,10 +6,11 @@ const Weather = (props) => {
       <div className="location">
         {props.place.name}, {props.place.region}
       </div>
-      <img src={props.data.condition.icon} alt="" />
-      <div className="sky-status">{props.data.condition.text}</div>
-      <div className="temp">Temperature : {props.data.temp_c}°C</div>
-      <div className="humidity">Humidity : {props.data.humidity}</div>
+      <img src={props.currentData.condition.icon} alt="" />
+      <div className="sky-status">{props.currentData.condition.text}</div>
+      <div className="temp">Temperature : {props.currentData.temp_c}°C</div>
+      <div className="humidity">Humidity : {props.currentData.humidity}</div>
+      <div className="temp">Tomorrow's Average Temperature : {props.forecastData.forecastday[0].day.avgtemp_c}°C</div>
     </div>
   );
 };

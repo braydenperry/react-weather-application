@@ -7,7 +7,8 @@ import LoadingIndicator from './UI/LoadingIndicator';
 import './app.css';
 
 function App() {
-  const [data, setData] = useState(null);
+  const [currentData, setCurrentData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
   const [place, setPlace] = useState(null);
   const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');
@@ -36,7 +37,7 @@ function App() {
         'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com',
       },
     };
-    const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${
+    const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${
       search || location
     }`;
     const response = await fetch(url, options);
@@ -47,13 +48,14 @@ function App() {
   useEffect(() => {
     fetchData(search, location).then((responseData) => {
       setPlace(responseData.location);
-      setData(responseData.current);
+      setCurrentData(responseData.current);
+      setForecastData(responseData.forecast);
       setIsLoading(false);
     });
   }, [location, search, fetchData]);
 
-  let display = data ? (
-    <Weather place={place} data={data} />
+  let display = currentData && forecastData ? (
+    <Weather place={place} currentData={currentData} forecastData={forecastData} />
   ) : (
     <p>no data found 😬</p>
   );
