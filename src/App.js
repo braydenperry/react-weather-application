@@ -39,7 +39,7 @@ function App() {
     };
     const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${
       search || location
-    }`;
+    }&days=10`;
     const response = await fetch(url, options);
     const responseData = await response.json();
     return responseData;

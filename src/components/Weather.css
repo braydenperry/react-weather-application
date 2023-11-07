@@ -1,3 +1,28 @@
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+  gap: 20px; /* Adjust the gap between cards as needed */
+}
+
+.card {
+  background-color: #f0f0f0; /* Background color for each card */
+  padding: 20px; /* Add padding to space out card content */
+  border: 1px solid #ccc; /* Optional: Add borders to cards */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow to cards */
+}
+
+.card img {
+  height: auto;
+  display: block; /* Remove default inline spacing for the image */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.card h1 {
+  text-align: left;
+  margin-top: auto;
+}
+
 .output-sec {
   display: flex;
   flex-direction: column;
@@ -7,4 +32,16 @@
 }
 .output-sec .location {
   text-transform: uppercase;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .card-row {
+    grid-template-columns: 1fr; /* Single column layout for smaller screens */
+  }
+
+  /* Adjust individual card styles for smaller screens */
+  .card {
+    padding: 10px; /* Reduce padding for mobile layout */
+  }
 }
