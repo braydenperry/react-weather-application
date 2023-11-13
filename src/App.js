@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useState, useEffect } from 'react';
 
-import Weather from './components/Weather';
+import Weather from './components/Weather/Weather';
 import LoadingIndicator from './UI/LoadingIndicator';
 
 import './app.css';
